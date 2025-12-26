@@ -51,7 +51,7 @@ export default function Footer() {
 							href="mailto:aivora@domain.com"
 							className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-cyan-400 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-black/40"
 						>
-							<MailIcon className="w-5 h-5" />
+							<MailIcon className="w-5 h-5" />z
 							aivora@domain.com
 						</a>
 					</div>
@@ -92,7 +92,7 @@ export default function Footer() {
 					<div className="mt-6 grid items-center gap-4 border-t border-white/10 py-6 md:grid-cols-3">
 						<div className="flex items-center gap-2 text-white/80">
 							<span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-400"></span>
-							<span>4517 Washington, USA</span>
+							<span>ULAANBATAR, MNG</span>
 						</div>
 						<div className="text-center text-sm text-white/60">
 							Copyright © 2025 <span className="text-white">Aivora</span>, All rights reserved.
