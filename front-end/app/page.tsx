@@ -1,10 +1,5 @@
-'use client';
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-    return (
-        <main>
-            <div className="m-32">sdgdf</div>
-            <h1>Welcome</h1>
-        </main>
-    );
+export default function AppHome() {
+    redirect('/home');    
 }
