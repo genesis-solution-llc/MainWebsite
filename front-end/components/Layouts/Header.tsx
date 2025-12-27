@@ -121,7 +121,7 @@ function NavPill({ link }: { link: NavLink }) {
 
 export default function Header() {
 	return (
-		<header className="sticky top-0 z-50 w-full bg-[#070b16]/80 backdrop-blur border-b border-white/5">
+		<header className="sticky top-0 right-0 left-0  z-50 bg-[#070b16]/80 backdrop-blur border-b border-white/5">
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 				<Logo />
 
