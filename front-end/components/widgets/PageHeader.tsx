@@ -8,7 +8,7 @@ interface PageHeaderProps {
 
 export const PageHeader = ({ title, breadcrumbs }: PageHeaderProps) => {
     return (
-        <div className="page-header">
+        <div className="pb-1">
             <Breadcrumb items={breadcrumbs} />
             <h1 className="page-title">{title}</h1>
 

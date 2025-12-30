@@ -3,6 +3,8 @@
 import React from 'react';
 import { PageHeader } from '@/components/widgets/PageHeader';
 import FeatureCard from '@/components/Cards/FeatureCard';
+import ServiceProcess from '@/components/sections/serviceprocess/ServiceProcess';
+import OurProjexts from '@/components/sections/serviceprocess/OurProjects';
 
 
 interface Feature {
@@ -38,7 +40,7 @@ const features: Feature[] = [
 export const Services: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/images/about-hero.jpg' }) => {
   return (
     <section className="why-services relative overflow-hidden py-16 lg:py-28 bg-[#00020F]">
-        <div className="min-h-screen flex justify-center text-4xl">
+        <div className="flex justify-center text-4xl">
             <PageHeader
                 title="Our Services"
                 breadcrumbs={[
@@ -48,13 +50,16 @@ export const Services: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/images/
                 
             />
         </div>
-      
+        <ServiceProcess/>
+        <OurProjexts />
+        
       {/* <FeatureCard
         icon={<SecurityIcon />}
         title="Smarter insights"
         description="Make faster, data-driven decisions powered by real-time AI analysis and prediction."
 
       /> */}
+      
     
     </section>
   );
