@@ -1,5 +1,6 @@
 import HeroSection from "@/components/sections/HeroSection";
 import MovingImages from "@/components/sections/MovingImages";
+import OurMainServices from "@/components/sections/OurMainServices";
 import WhoWeAre from "@/components/sections/WhoWeAre";
 import Image from "next/image";
 
@@ -9,6 +10,7 @@ export default function Home() {
       <HeroSection />
       <WhoWeAre />
       <MovingImages />
+      <OurMainServices />
     </div>
   );
 }

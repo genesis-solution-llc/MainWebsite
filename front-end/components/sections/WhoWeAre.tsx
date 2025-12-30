@@ -1,12 +1,11 @@
+import SectionTitle from "../widgets/SectionTitle";
+
 export default function WhoWeAre() {
   return (
     <section className="relative overflow-hidden bg-[#070b16] px-6 py-24">
       <div className="relative mx-auto max-w-7xl">
         {/* Section label */}
-        <div className="mb-12 flex items-center gap-2">
-          <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/50" />
-          <span className="text-sm font-medium text-white">Who We Are?</span>
-        </div>
+        <SectionTitle title="Who We Are" dots={1} fontsize={"text-sm"} />
 
         {/* Main content grid */}
         <div className="grid items-center gap-12 lg:grid-cols-2">

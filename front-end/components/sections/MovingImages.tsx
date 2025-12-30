@@ -25,7 +25,11 @@ export default function MovingImages() {
         <div className="flex gap-8 animate-scroll">
           {loopImages.map((img, idx) => (
             <div key={idx} className="shrink-0">
-              <div className={`relative h-100 w-150 overflow-hidden rounded-full border-4 ${img.borderClass} shadow ${img.shadowClass}`}>
+              <div className={`relative h-40 w-60
+    sm:h-50 sm:w-75
+    md:h-65 md:w-98
+    lg:h-80 lg:w-120
+    xl:h-100 xl:w-150 overflow-hidden rounded-full border-4 ${img.borderClass} shadow ${img.shadowClass}`}>
                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
               </div>
             </div>
