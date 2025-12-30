@@ -1,22 +1,63 @@
 'use client';
 
 import React from 'react';
+import { PageHeader } from '@/components/widgets/PageHeader';
+import FeatureCard from '@/components/Cards/FeatureCard';
 
 
-export default function ServicesPage() {
-    return (
-        <div className="min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <h1 className="text-4xl font-bold text-gray-900 mb-8">Services</h1>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Service Card */}
-                    <div className="border rounded-lg p-6 hover:shadow-lg transition">
-                        <h2 className="text-xl font-semibold text-gray-900 mb-4">Service Title</h2>
-                        <p className="text-gray-600">Service description goes here.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+interface Feature {
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
+  img?: string;
 }
+
+const features: Feature[] = [
+  {
+    title: 'Secure, ethical & scalable AI',
+    description: 'Privacy-first design and reliable infrastructure for production workloads',
+    img: '/images/about/bald_guy.svg',
+  },
+  {
+    title: 'Expert team of AI specialists',
+    description: 'Experienced engineers and researchers building tailored solutions',
+    img: '/images/about/bald_guy.svg',
+  },
+  {
+    title: 'Custom-built solutions that fit you',
+    description: 'Solutions designed for your business goals and data',
+    img: '/images/about/bald_guy.svg',
+  },
+  {
+    title: 'Client-centered, business-focused',
+    description: 'We align product outcomes with measurable business impact',
+    img: '/images/about/bald_guy.svg',
+  },
+];
+
+export const Services: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/images/about-hero.jpg' }) => {
+  return (
+    <section className="why-services relative overflow-hidden py-16 lg:py-28 bg-[#00020F]">
+        <div className="min-h-screen flex justify-center text-4xl">
+            <PageHeader
+                title="Our Services"
+                breadcrumbs={[
+                    { label: 'Home', href: '/' },
+                    { label: 'Services' }
+                ]}
+                
+            />
+        </div>
+      
+      {/* <FeatureCard
+        icon={<SecurityIcon />}
+        title="Smarter insights"
+        description="Make faster, data-driven decisions powered by real-time AI analysis and prediction."
+
+      /> */}
+    
+    </section>
+  );
+};
+
+export default Services;
