@@ -49,7 +49,7 @@ export default function Footer() {
 					<div className="flex justify-center">
 						<a
 							href="mailto:aivora@domain.com"
-							className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-cyan-400 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-black/40"
+							className="inline-flex items-center gap-3 rounded-full bg-liner-to-r from-indigo-500 via-sky-500 to-cyan-400 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-black/40"
 						>
 							<MailIcon className="w-5 h-5" />z
 							aivora@domain.com
@@ -100,19 +100,24 @@ export default function Footer() {
 						<div className="flex items-center justify-end gap-3">
 							<span className="text-white/80 inline-flex items-center gap-2">
 								<PhoneIcon />
-								+(1)1230 452 8597
+								+(976)9999 9999
 							</span>
-							<button
-								onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-								aria-label="Back to top"
-								className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-emerald-400 text-black shadow-lg hover:bg-emerald-300"
-							>
-								↑
-							</button>
+							
 						</div>
+						
 					</div>
 				</div>
+				
 			</div>
+			{/* <div className="">
+				<button
+					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+					aria-label="Back to top"
+					className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-emerald-400 text-black shadow-lg hover:bg-emerald-300"
+				>
+					↑
+				</button>
+			</div> */}
 		</footer>
 	);
 }

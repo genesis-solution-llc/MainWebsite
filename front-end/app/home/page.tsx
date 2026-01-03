@@ -2,6 +2,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import MovingImages from "@/components/sections/MovingImages";
 import OurMainServices from "@/components/sections/OurMainServices";
 import WhoWeAre from "@/components/sections/WhoWeAre";
+import TopServices from "@/components/sections/TopServices";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <WhoWeAre />
       <MovingImages />
       <OurMainServices />
+      <TopServices />
     </div>
   );
 }

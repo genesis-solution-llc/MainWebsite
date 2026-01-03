@@ -11,21 +11,17 @@ function ArrowIcon() {
 type GreenButtonProps = {
   href: string;
   label?: string;
+  customClass?: string;
 };
 
-export default function GreenButton({ href, label = "BEGIN TODAY WITH US" }: GreenButtonProps) {
+export default function GreenButton({ href, customClass = "text-[1px]", label = "BEGIN TODAY WITH US"}: GreenButtonProps) {
   return (
     <Link
       href={href}
-      className="group relative inline-flex items-center gap-0  text-base font-bold text-black transition-all duration-300"
+      className={"group relative inline-flex items-center gap-0  text-base font-bold text-black transition-all duration-300"}
     >
       {/* Text */}
-      <span className="
-        bg-emerald-400 px-6 py-4
-        rounded-l-full
-        group-hover:rounded-full
-        transition-all duration-300
-      ">
+      <span className={"bg-emerald-400 px-6 py-4 rounded-l-full group-hover:rounded-full transition-all duration-300 text-xl"+{customClass}}>
         {label}
       </span>
     

@@ -57,7 +57,7 @@ function ChevronDown({ className = "w-3 h-3" }: { className?: string }) {
 function Logo() {
 	return (
 		<div className="flex items-center gap-2">
-			<span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-cyan-400 to-emerald-500">
+			<span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-linear-to-br from-cyan-400 to-emerald-500">
 				<svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
 					<rect x="3" y="5" width="18" height="4" rx="2" fill="white" opacity="0.85" />
 					<rect x="3" y="11" width="14" height="4" rx="2" fill="white" opacity="0.7" />
@@ -92,7 +92,7 @@ function NavPill({ link }: { link: NavLink }) {
 				) : null}
 			</Link>
 			{isActive ? (
-				<span className="absolute left-1/2 -translate-x-1/2 top-[2.75rem] h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]" />
+				<span className="absolute left-1/2 -translate-x-1/2 top-11 h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]" />
 			) : null}
 
 			{link.submenu ? (

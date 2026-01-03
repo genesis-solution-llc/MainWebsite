@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/widgets/PageHeader';
 import FeatureCard from '@/components/Cards/FeatureCard';
 import ServiceProcess from '@/components/sections/serviceprocess/ServiceProcess';
 import OurProjexts from '@/components/sections/serviceprocess/OurProjects';
+import OurServices from '@/components/sections/services/OurServices';
 
 
 interface Feature {
@@ -51,8 +52,8 @@ export const Services: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/images/
             />
         </div>
         <ServiceProcess/>
-        <OurProjexts />
-        
+
+        <OurServices />
       {/* <FeatureCard
         icon={<SecurityIcon />}
         title="Smarter insights"
