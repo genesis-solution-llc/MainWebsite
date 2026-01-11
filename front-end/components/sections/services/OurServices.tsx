@@ -141,7 +141,7 @@ export default function OurServices() {
                   </div>
 
                   {/* Right: Illustration / image */}
-                  <div className="md:col-span-6 flex justify-end">
+                  {/* <div className="md:col-span-6 flex justify-end">
                     <div className={`w-full max-w-135 transition-all duration-700 ${i === activeIndex ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-8 scale-95 opacity-60'}`}>
                       <div className="rounded-xl shadow-2xl overflow-hidden bg-black" style={{ height: '360px' }}>
                         <iframe
@@ -154,7 +154,7 @@ export default function OurServices() {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </section>

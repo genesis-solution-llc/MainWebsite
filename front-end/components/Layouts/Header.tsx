@@ -11,34 +11,18 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-	{ label: "Home", href: "/home" },
-	{ label: "About Us", href: "/persentations/about" },
+	{ label: "Нүүр", href: "/home" },
+	{ label: "Билний тухай", href: "/persentations/about" },
 	{
-		label: "Pages",
-		href: "#",
-		submenu: [
-			{ label: "Admin", href: "/admin" },
-			{ label: "Login", href: "/auth/login" },
-			{ label: "Register", href: "/auth/register" },
-		],
-	},
-	{
-		label: "Services",
+		label: "Үйлчилгээ",
 		href: "/persentations/services",
 		submenu: [
 			{ label: "Consulting", href: "/persentations/services" },
 			{ label: "Contact", href: "/persentations/contact" },
 		],
 	},
-	{
-		label: "Blog",
-		href: "#",
-		submenu: [
-			{ label: "Latest", href: "/" },
-			{ label: "Archive", href: "/" },
-		],
-	},
-	{ label: "Contact Us", href: "/persentations/contact" },
+	
+	{ label: "Холбоо барих", href: "/persentations/contact" },
 ];
 
 function ChevronDown({ className = "w-3 h-3" }: { className?: string }) {
@@ -64,7 +48,7 @@ function Logo() {
 					<rect x="3" y="17" width="10" height="4" rx="2" fill="white" opacity="0.55" />
 				</svg>
 			</span>
-			<span className="text-lg font-semibold text-white">Aivora</span>
+			<span className="text-lg font-semibold text-white">VAGGA TECH</span>
 		</div>
 	);
 }

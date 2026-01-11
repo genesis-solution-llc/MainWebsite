@@ -36,7 +36,7 @@ const features: Feature[] = [
 export const WhyServices: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/images/about-hero.jpg' }) => {
   return (
     <section className="why-services relative overflow-hidden py-16 lg:py-28">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#061627]/70 via-[#081628]/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-liner-to-r from-[#061627]/70 via-[#081628]/60 to-transparent pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-7">
@@ -58,7 +58,7 @@ export const WhyServices: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/imag
                 key={idx}
                 className="feature-card bg-white/5 border border-white/10 backdrop-blur-md rounded-lg p-6 flex items-center gap-4"
               >
-                <div className="icon h-12 w-12 rounded-full bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center text-white">
+                <div className="icon h-12 w-12 rounded-full bg-liner-to-br from-emerald-400 to-blue-500 flex items-center justify-center text-white">
                   {/* Next.js Image ашиглах */}
                   {f.img && <Image src={f.img} alt={f.title} width={24} height={24} />}
                 </div>
@@ -79,7 +79,7 @@ export const WhyServices: React.FC<{ imageSrc?: string }> = ({ imageSrc = '/imag
               width={900}
               height={600}
               alt="team"
-              className="object-cover w-full h-[420px] lg:h-[560px]"
+              className="object-cover w-full h-105 lg:h-140"
             />
             <div className="absolute inset-0 bg-black/25" />
           </div>

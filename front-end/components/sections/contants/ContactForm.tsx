@@ -1,6 +1,8 @@
+
 "use client";
 
 import React, { useRef, useState } from "react";
+import { User, Mail, Phone, Paperclip, Send, CheckCircle2, AlertCircle, ChevronDown } from "lucide-react";
 
 type FormData = {
   name: string;
@@ -12,9 +14,10 @@ type FormData = {
 };
 
 const SERVICES = [
-  "IT supporting",
-  "Website service",
-  "Mobile spplications",
+  "IT Support Infrastructure",
+  "Neural Website Engineering",
+  "Adaptive Mobile Applications",
+  "Custom AI Integration",
 ];
 
 export default function ContactForm() {
@@ -46,9 +49,9 @@ export default function ContactForm() {
   }
 
   function validate() {
-    if (!form.name.trim()) return "Нэрээ оруулна уу ";
-    if (!form.email.trim() && !form.phone.trim()) return "Имэйл эсвэл Дугаар аа оруулна уу";
-    if (!form.service) return "Үйлчилгээг сонгоно уу";
+    if (!form.name.trim()) return "Identification required: Please enter your name.";
+    if (!form.email.trim() && !form.phone.trim()) return "Channel missing: Provide email or phone.";
+    if (!form.service) return "Request undefined: Select a service module.";
     return null;
   }
 
@@ -62,161 +65,210 @@ export default function ContactForm() {
     }
 
     setLoading(true);
-    // simulate API call
+    // Simulate Neural Uplink
     setTimeout(() => {
       setLoading(false);
       setSent(true);
-    }, 900);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+        file: null,
+      });
+    }, 2000);
   }
 
   return (
-    <section className="py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="relative rounded-2xl bg-linear-to-br from-[#0a1118]/60 to-[#07101a]/60 p-6 shadow-2xl border border-slate-700/20 backdrop-blur-sm">
-          <div className="grid gap-8 lg:grid-cols-2 items-stretch">
-            {/* Left: form */}
-            <div className="p-6 md:p-10 rounded-lg bg-linear-to-br from-white/1 to-transparent border border-slate-800/40">
-              <h3 className="text-4xl font-semibold text-white">Ready to collaborate with us?</h3>
-              <p className="mt-2 text-slate-300">Who knows where a single message might lead you.</p>
+    <section className="relative py-32 overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-grid-premium opacity-20 pointer-events-none" />
+      <div className="glow-blob bottom-[-10%] left-[-10%] opacity-10 pointer-events-none" />
 
-              <form className="mt-6 space-y-4" onSubmit={handleSubmit} noValidate>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <label className="relative block">
-                    <span className="sr-only">Your Name</span>
-                    <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                      {/* person icon */}
-                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M20 21v-1a6 6 0 00-6-6H10a6 6 0 00-6 6v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+      <div className="relative z-10 mx-auto max-w-7xl px-8">
+        <div className="flex flex-col lg:flex-row gap-24">
+          
+          {/* Left: Branding & Copy */}
+          <div className="lg:w-1/3 space-y-12">
+            <div>
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/5 bg-white/2 px-5 py-1.5 backdrop-blur-2xl">
+                <div className="h-1 w-1 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[9px] font-black uppercase tracking-[0.5em] text-white/40">Uplink Gateway</span>
+              </div>
+              <h2 className="text-5xl font-black uppercase tracking-tighter text-white leading-[0.9] italic sm:text-7xl lg:text-8xl">
+                Ready to <br />
+                <span className="text-outline">Collaborate?</span>
+              </h2>
+            </div>
+            
+            <p className="text-xl font-light text-white/30 italic leading-relaxed">
+              Initiate connection to the Aivora Neural Matrix. Our systems architects are standing by for deployment.
+            </p>
+
+            <div className="pt-12 space-y-8">
+              <div className="flex items-center gap-6 group">
+                <div className="h-px w-12 bg-emerald-500/20 group-hover:w-24 transition-all duration-500" />
+                <span className="text-[10px] font-mono tracking-[0.4em] text-white/20 uppercase">Global Instance: 01</span>
+              </div>
+              <div className="flex items-center gap-6 group">
+                <div className="h-px w-12 bg-emerald-500/20 group-hover:w-24 transition-all duration-500" />
+                <span className="text-[10px] font-mono tracking-[0.4em] text-white/20 uppercase">Latent Response: &lt;12h</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: The Form HUD */}
+          <div className="lg:w-2/3">
+            <div className="relative rounded-3xl border border-white/10 bg-[#0A0D18]/60 p-1 lg:p-1.5 backdrop-blur-3xl shadow-2xl">
+              <div className="absolute -inset-px rounded-3xl bg-linear-to-br from-emerald-500/10 via-transparent to-white/5 pointer-events-none" />
+              
+              <form 
+                onSubmit={handleSubmit} 
+                className="relative z-10 rounded-[22px] bg-[#010309]/80 p-8 lg:p-12 space-y-10"
+              >
+                {sent ? (
+                  <div className="flex flex-col items-center justify-center py-20 text-center space-y-6 animate-in fade-in zoom-in duration-500">
+                    <div className="h-20 w-20 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 border border-emerald-500/20">
+                      <CheckCircle2 size={40} />
                     </div>
-                    <input
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Your Name*"
-                      className="w-full rounded-md bg-slate-800/60 border border-slate-700 px-4 py-3 pl-12 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    />
-                  </label>
+                    <h3 className="text-3xl font-black uppercase tracking-tighter text-white">Transmission Successful</h3>
+                    <p className="text-white/40 max-w-sm italic">Connection established. A systems architect will synchronize with your request shortly.</p>
+                    <button 
+                      type="button" 
+                      onClick={() => setSent(false)}
+                      className="mt-8 text-[10px] font-black uppercase tracking-[0.4em] text-emerald-500 hover:text-white transition-colors"
+                    >
+                      New Transmission
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+                      {/* Name Input */}
+                      <div className="group space-y-3">
+                        <label className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-emerald-500 transition-colors">Identification</label>
+                        <div className="relative">
+                          <User className="absolute left-0 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-emerald-500 transition-colors" size={16} />
+                          <input
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                            placeholder="OPERATOR NAME"
+                            className="w-full border-b border-white/10 bg-transparent py-4 pl-8 text-sm font-medium tracking-wide text-white outline-none focus:border-emerald-500 transition-colors placeholder:text-white/5"
+                          />
+                        </div>
+                      </div>
 
-                  <label className="relative block">
-                    <span className="sr-only">Email</span>
-                    <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 8l9 6 9-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <input
-                      name="email"
-                      type="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Email Address*"
-                      className="w-full rounded-md bg-slate-800/60 border border-slate-700 px-4 py-3 pl-12 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    />
-                  </label>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <label className="relative block">
-                    <span className="sr-only">Contact No</span>
-                    <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 16.92V21a1 1 0 01-1 1c-10 0-18-8-18-18a1 1 0 011-1h4.09a1 1 0 01.95.68l1.48 4.43a1 1 0 01-.24.97L7.09 10.91a11.05 11.05 0 005 5l1.72-1.09a1 1 0 01.97-.24l4.43 1.48c.44.15.73.56.73 1.02z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <input
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="Contact No*"
-                      className="w-full rounded-md bg-slate-800/60 border border-slate-700 px-4 py-3 pl-12 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    />
-                  </label>
-
-                  <label className="relative block">
-                    <span className="sr-only">Attach file</span>
-                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95L11.83 14.4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+                      {/* Email Input */}
+                      <div className="group space-y-3">
+                        <label className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-emerald-500 transition-colors">Neural Channel</label>
+                        <div className="relative">
+                          <Mail className="absolute left-0 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-emerald-500 transition-colors" size={16} />
+                          <input
+                            name="email"
+                            type="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder="EMAIL_ADDRESS@DOMAIN"
+                            className="w-full border-b border-white/10 bg-transparent py-4 pl-8 text-sm font-medium tracking-wide text-white outline-none focus:border-emerald-500 transition-colors placeholder:text-white/5 uppercase"
+                          />
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+                      {/* Phone Input */}
+                      <div className="group space-y-3">
+                        <label className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-emerald-500 transition-colors">Voice Frequency</label>
+                        <div className="relative">
+                          <Phone className="absolute left-0 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-emerald-500 transition-colors" size={16} />
+                          <input
+                            name="phone"
+                            value={form.phone}
+                            onChange={handleChange}
+                            placeholder="+00 000 000 000"
+                            className="w-full border-b border-white/10 bg-transparent py-4 pl-8 text-sm font-medium tracking-wide text-white outline-none focus:border-emerald-500 transition-colors placeholder:text-white/5"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Service Selection */}
+                      <div className="group space-y-3">
+                        <label className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-emerald-500 transition-colors">Service Module</label>
+                        <div className="relative">
+                          <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-emerald-500 transition-colors" size={16} />
+                          <select
+                            name="service"
+                            value={form.service}
+                            onChange={handleChange}
+                            className="w-full appearance-none border-b border-white/10 bg-transparent py-4 pr-8 text-sm font-medium tracking-wide text-white outline-none focus:border-emerald-500 transition-colors placeholder:text-white/5 uppercase cursor-pointer"
+                          >
+                            <option value="" className="bg-slate-950">Select Directive</option>
+                            {SERVICES.map((s) => (
+                              <option key={s} value={s} className="bg-slate-900 text-white uppercase">{s}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Message Area */}
+                    <div className="group space-y-3">
+                      <label className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-emerald-500 transition-colors">Transmission Payload</label>
+                      <textarea
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        placeholder="DEFINE YOUR ARCHITECTURAL GOALS..."
+                        rows={4}
+                        className="w-full border-b border-white/10 bg-transparent py-4 text-sm font-medium tracking-wide text-white outline-none focus:border-emerald-500 transition-colors placeholder:text-white/5 uppercase resize-none"
+                      />
+                    </div>
+
+                    {/* File Attach */}
+                    <div className="flex items-center justify-between pt-4">
                       <button
                         type="button"
                         onClick={triggerFileDialog}
-                        className="flex h-10 items-center rounded-md bg-slate-800/60 border border-slate-700 px-3 text-slate-200 hover:bg-slate-700/60"
+                        className="group/file flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-white/20 hover:text-emerald-500 transition-colors"
                       >
-                        Attach file…
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/5 group-hover/file:border-emerald-500/50 transition-colors">
+                          <Paperclip size={14} />
+                        </div>
+                        <span>{form.file ? form.file.name : "Attach Blueprints"}</span>
+                        <input ref={fileRef} onChange={handleFilePick} type="file" className="sr-only" />
                       </button>
-                      <span className="text-sm text-slate-400">{form.file ? form.file.name : "No file"}</span>
-                      <input ref={fileRef} onChange={handleFilePick} type="file" className="sr-only" />
+
+                      {error && (
+                        <div className="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase tracking-wider italic animate-pulse">
+                          <AlertCircle size={12} /> {error}
+                        </div>
+                      )}
                     </div>
-                  </label>
-                </div>
 
-                <div>
-                  <label className="block">
-                    <span className="sr-only">Select Service</span>
-                    <select
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                      className="w-full rounded-md bg-slate-800/60 border border-slate-700 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    >
-                      <option value="">Select Service*</option>
-                      {SERVICES.map((s) => (
-                        <option key={s} value={s} className="bg-slate-900 text-white space-y-10">
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-
-                <div>
-                  <label className="block">
-                    <span className="sr-only">Your Message</span>
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      placeholder="Your Message.."
-                      rows={5}
-                      className="w-full rounded-md bg-slate-800/60 border border-slate-700 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    />
-                  </label>
-                </div>
-
-                {error && <div className="text-rose-400 text-sm">{error}</div>}
-                {sent && <div className="text-emerald-400 text-sm">Thanks — we received your message!</div>}
-
-                <div>
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="mt-2 inline-flex w-full items-center justify-center gap-3 rounded-full bg-linear-to-r from-emerald-400 to-teal-400 px-8 py-4 text-center font-bold text-black shadow-md hover:brightness-95 disabled:opacity-60"
-                  >
-                    {loading ? "Sending…" : "Илгээх"}
-                    <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                </div>
+                    <div className="pt-10">
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="group/submit relative w-full overflow-hidden rounded-2xl bg-white py-6 text-[11px] font-black uppercase tracking-[0.5em] text-slate-950 transition-all hover:bg-emerald-500 disabled:opacity-40"
+                      >
+                        {loading ? (
+                          <div className="flex items-center justify-center gap-4">
+                            <div className="h-1.5 w-1.5 rounded-full bg-slate-950 animate-bounce [animation-delay:-0.3s]" />
+                            <div className="h-1.5 w-1.5 rounded-full bg-slate-950 animate-bounce [animation-delay:-0.15s]" />
+                            <div className="h-1.5 w-1.5 rounded-full bg-slate-950 animate-bounce" />
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center gap-4">
+                            Broadcast Signal <Send size={16} className="transition-transform group-hover/submit:translate-x-1 group-hover/submit:-translate-y-1" />
+                          </div>
+                        )}
+                      </button>
+                    </div>
+                  </>
+                )}
               </form>
-            </div>
-
-            {/* Right: map */}
-            <div className="rounded-lg overflow-hidden border border-slate-700/40">
-              <iframe
-                src="google.com/maps/search/Ulaanbaatar%2C%2014200%2C%20Mongolia"
-                className="h-full w-full min-h-110 bg-white"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Location map"
-              />
             </div>
           </div>
         </div>

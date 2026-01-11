@@ -4,6 +4,7 @@ import OurMainServices from "@/components/sections/OurMainServices";
 import WhoWeAre from "@/components/sections/WhoWeAre";
 import TopServices from "@/components/sections/TopServices";
 import Image from "next/image";
+import WhyChooseUs from "@/components/sections/WhyChooseUsSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <MovingImages />
       <OurMainServices />
       <TopServices />
+      <WhyChooseUs/>
     </div>
   );
 }

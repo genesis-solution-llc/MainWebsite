@@ -70,7 +70,7 @@ function ArrowIcon() {
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen overflow-hidden bg-linear-to-br from-[#0a1128] via-[#0f1d47] to-[#1a2b5e] px-6 py-30 -mt-15">
+    <section className="relative py-24 px-6 md:px-12 bg-[#020617] min-h-screen flex flex-col items-center overflow-hidden">
       {/* Striped background pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
