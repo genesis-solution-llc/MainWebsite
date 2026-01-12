@@ -92,7 +92,7 @@ export default function OurServices() {
          <h2 className="text-4xl font-black uppercase tracking-tighter text-white sm:text-6xl">
            Specialized <br/><span className="text-outline">Divisions</span>
          </h2>
-         <div className="h-px flex-1 bg-gradient-to-r from-emerald-500/30 to-transparent" />
+         <div className="h-px flex-1 bg-linear-to-r from-emerald-500/30 to-transparent" />
       </div>
       
       <div className="grid gap-20 lg:grid-cols-12">
