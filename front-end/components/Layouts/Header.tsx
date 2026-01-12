@@ -12,7 +12,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
 	{ label: "Нүүр", href: "/home" },
-	{ label: "Билний тухай", href: "/persentations/about" },
+	{ label: "Бидний тухай", href: "/persentations/about" },
 	{
 		label: "Үйлчилгээ",
 		href: "/persentations/services",
