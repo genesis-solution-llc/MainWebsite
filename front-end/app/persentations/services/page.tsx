@@ -84,7 +84,7 @@ export default function OurServices() {
 
   return (
     
-    <div className="relative">
+    <div className="relative bg-[#02040a]">
       <div className='px-100 pb-100'>
         <ServiceProcess/>
       </div>
